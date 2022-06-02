@@ -5,6 +5,7 @@ import com.ossovita.postapp.core.entities.Category;
 import com.ossovita.postapp.core.entities.Post;
 import com.ossovita.postapp.core.entities.dto.CreatePostDto;
 import com.ossovita.postapp.core.entities.dto.UpdatePostDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,6 +59,11 @@ public class PostController {
     @GetMapping("/posts/get-latest-three-post")
     public List<Post> getLatestThreePost(){
         return postService.getLatestThreePost();
+    }
+
+    @DeleteMapping("/posts/delete-post-by-postpk/{postPk}")
+    public void deletePostByPostPk(@PathVariable long postPk){
+        postService.deletePostByPostPk(postPk);
     }
 
 

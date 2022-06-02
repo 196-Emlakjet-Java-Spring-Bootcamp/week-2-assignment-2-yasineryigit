@@ -22,4 +22,6 @@ public interface PostService {
     List<Post> getLatestThreePost();
 
     List<Post> getAllPosts();
+
+    void deletePostByPostPk(long postPk);
 }

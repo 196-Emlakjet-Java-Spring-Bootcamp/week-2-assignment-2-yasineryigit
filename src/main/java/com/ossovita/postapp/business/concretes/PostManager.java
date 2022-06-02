@@ -25,7 +25,6 @@ public class PostManager implements PostService {
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
-
     @Override
     public Post createPost(CreatePostDto createPostDto) {
         Post post = Post.builder()
@@ -71,6 +70,11 @@ public class PostManager implements PostService {
     @Override
     public List<Post> getLatestThreePost() {
         return postRepository.findFirst3ByOrderByCreatedAtDesc();
+    }
+
+    @Override
+    public void deletePostByPostPk(long postPk) {
+        postRepository.deleteById(postPk);
     }
 
 }
